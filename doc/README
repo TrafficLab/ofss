@@ -1,0 +1,38 @@
+Dependencies
+=============
+libev (libev.schmorp.de/)
+------
+# apt-get install libev-dev libev4
+
+libpcap (http://www.tcpdump.org/)
+--------
+# apt-get install libpcap-dev
+
+autoconf
+---------
+# apt-get install autoconf
+
+
+
+Building
+=========
+> autoreconf -i
+> ./configure
+> make
+
+
+
+Running
+========
+To run ofss, it must be able to open raw sockets.
+Either run it as superuser:
+# ./ofss ...
+Or grant raw socket capabilities to it:
+# setcap cap_net_raw+ep ./ofss
+> ./ofss ...
+
+Use the following to check the command line arguments:
+> ./ofss --help
+
+The suggested command line for local oftest:
+> ./ofss -i -ddpid:00000000000000a1 -pveth0,vh2,veth4,veth6 -clocalhost -v

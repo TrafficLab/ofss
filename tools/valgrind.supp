@@ -1,0 +1,69 @@
+{
+  Suppress issue with pthread (possibly lost)
+  Memcheck:Leak
+  fun:calloc
+  fun:allocate_dtv
+}
+
+{
+   Race condition with ev_run
+   Helgrind:Race
+   fun:ev_run
+}
+
+{
+   Race condition with ev_run
+   Helgrind:Race
+   obj:/usr/lib/libev.so.4.0.0
+   fun:ev_run
+}
+
+{
+   Race condition with ev_ref
+   Helgrind:Race
+   fun:ev_ref
+}
+
+{
+   Race condition with ev_feed_event
+   Helgrind:Race
+   fun:ev_feed_event
+}
+
+{
+   Race condition with ev_invoke_pending
+   Helgrind:Race
+   fun:*
+   fun:ev_invoke_pending
+}
+
+{
+   Race condition with ev_invoke_pending
+   Helgrind:Race
+   fun:ev_invoke_pending
+}
+
+{
+   Race condition with ev_async_start
+   Helgrind:Race
+   fun:ev_async_start
+}
+
+{
+   Race condition with ev_async_send
+   Helgrind:Race
+   fun:ev_async_send
+
+}
+
+{
+   Race condition with ev_timer_start
+   Helgrind:Race
+   fun:ev_timer_start
+}
+
+{
+   Race condition with ev_io_start
+   Helgrind:Race
+   fun:ev_io_start
+}
