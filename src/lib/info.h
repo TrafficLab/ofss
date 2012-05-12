@@ -21,7 +21,7 @@
 #define INFO_ARGS                                          \
     {.name = INFO_ARGS_NAME, .key =   INFO_ARGS_KEY,       \
      .arg  = INFO_ARGS_ARG,  .flags = INFO_ARGS_FLAGS,     \
-     .doc  = INFO_ARGS_DOC}
+     .doc  = INFO_ARGS_DOC,  .group = 0}
 
 void
 info();

@@ -31,7 +31,7 @@
 #define LOGGER_ARGS                                                  \
     {.name = LOGGER_ARGS_NAME, .key =   LOGGER_ARGS_KEY,             \
      .arg =  LOGGER_ARGS_ARG,  .flags = LOGGER_ARGS_FLAGS,           \
-     .doc  = LOGGER_ARGS_DOC}
+     .doc  = LOGGER_ARGS_DOC,   .group = 0}
 
 
 

@@ -36,6 +36,7 @@ struct args {
 };
 
 static struct argp argp;
+
 int main(int argc, char *argv[]) {
 
     struct args args = {
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]) {
             };
 
     // this call will exit on any argument error (see argp_error).
-    if (argp_parse(&argp, argc, argv, 0/*flags*/, 0/*arg_index*/, &args) != 0) {
+    if (argp_parse(&argp, argc, argv, 0/*flags*/, NULL/*arg_index*/, &args) != 0) {
         printf("Error parsing the arguments.");
         return -1;
     }
@@ -132,8 +133,11 @@ argp_parser(int key, char *arg, struct argp_state *state) {
 }
 
 static struct argp argp = {
-    .options  = argp_options,
-    .parser   = argp_parser,
-    .args_doc = "",  // only options, but no arguments
-    .doc      = "ofss -- An OpenFlow software switch implementation from TrafficLab, Ericsson Research, Hungary."
+    .options     = argp_options,
+    .parser      = argp_parser,
+    .args_doc    = "",  // only options, but no arguments
+    .doc         = "ofss -- An OpenFlow software switch implementation from TrafficLab, Ericsson Research, Hungary.",
+    .children    = NULL,
+    .help_filter = NULL,
+    .argp_domain = NULL
 };

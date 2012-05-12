@@ -51,13 +51,13 @@
 #define CONF_ARGS                                                      \
     {.name = CONF_DP_ARGS_NAME, .key =   CONF_DP_ARGS_KEY,             \
      .arg =  CONF_DP_ARGS_ARG,  .flags = CONF_DP_ARGS_FLAGS,           \
-     .doc  = CONF_DP_ARGS_DOC},                                        \
+     .doc  = CONF_DP_ARGS_DOC,  .group = 0},                           \
     {.name = CONF_CTRLS_ARGS_NAME, .key =   CONF_CTRLS_ARGS_KEY,       \
      .arg =  CONF_CTRLS_ARGS_ARG,  .flags = CONF_CTRLS_ARGS_FLAGS,     \
-     .doc  = CONF_CTRLS_ARGS_DOC},                                     \
+     .doc  = CONF_CTRLS_ARGS_DOC,  .group = 0},                        \
     {.name = CONF_PORTS_ARGS_NAME, .key =   CONF_PORTS_ARGS_KEY,       \
      .arg =  CONF_PORTS_ARGS_ARG,  .flags = CONF_PORTS_ARGS_FLAGS,     \
-     .doc  = CONF_PORTS_ARGS_DOC}
+     .doc  = CONF_PORTS_ARGS_DOC,  .group = 0}
 
 
 struct argp_state;
