@@ -56,14 +56,30 @@ pcap_port_fill(struct pcap_port *pcap_port) {
     if ((ecmd.supported & SUPPORTED_Pause) != 0) { pcap_port->of_port->supported |= OFPPF_PAUSE; }
     if ((ecmd.supported & SUPPORTED_Asym_Pause) != 0) { pcap_port->of_port->supported |= OFPPF_PAUSE_ASYM; }
 
+#ifdef SUPPORTED_10000baseT_Full
     if ((ecmd.supported & SUPPORTED_10000baseT_Full) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_2500baseX_Full
     if ((ecmd.supported & SUPPORTED_2500baseX_Full) != 0) { pcap_port->of_port->supported |= OFPPF_OTHER; }
+#endif
+#ifdef SUPPORTED_1000baseKX_Full
     if ((ecmd.supported & SUPPORTED_1000baseKX_Full) != 0) { pcap_port->of_port->supported |= OFPPF_OTHER; }
+#endif
+#ifdef SUPPORTED_10000baseKX4_Full
     if ((ecmd.supported & SUPPORTED_10000baseKX4_Full) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_10000baseKR_Full
     if ((ecmd.supported & SUPPORTED_10000baseKR_Full) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_10000baseR_FEC
     if ((ecmd.supported & SUPPORTED_10000baseR_FEC) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_20000baseMLD2_Full
     if ((ecmd.supported & SUPPORTED_20000baseMLD2_Full) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_20000baseKR2_Full
     if ((ecmd.supported & SUPPORTED_20000baseKR2_Full) != 0) { pcap_port->of_port->supported |= OFPPF_10GB_FD; }
+#endif
 
     if ((ecmd.advertising & SUPPORTED_10baseT_Half) != 0) { pcap_port->of_port->advertised |= OFPPF_10MB_HD; }
     if ((ecmd.advertising & SUPPORTED_10baseT_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10MB_FD; }
@@ -79,14 +95,30 @@ pcap_port_fill(struct pcap_port *pcap_port) {
     if ((ecmd.advertising & SUPPORTED_Pause) != 0) { pcap_port->of_port->advertised |= OFPPF_PAUSE; }
     if ((ecmd.advertising & SUPPORTED_Asym_Pause) != 0) { pcap_port->of_port->advertised |= OFPPF_PAUSE_ASYM; }
 
+#ifdef SUPPORTED_10000baseT_Full
     if ((ecmd.advertising & SUPPORTED_10000baseT_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_2500baseX_Full
     if ((ecmd.advertising & SUPPORTED_2500baseX_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_OTHER; }
+#endif
+#ifdef SUPPORTED_1000baseKX_Full
     if ((ecmd.advertising & SUPPORTED_1000baseKX_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_OTHER; }
+#endif
+#ifdef SUPPORTED_10000baseKX4_Full
     if ((ecmd.advertising & SUPPORTED_10000baseKX4_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_10000baseKR_Full
     if ((ecmd.advertising & SUPPORTED_10000baseKR_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_10000baseR_FEC
     if ((ecmd.advertising & SUPPORTED_10000baseR_FEC) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_20000baseMLD2_Full
     if ((ecmd.advertising & SUPPORTED_20000baseMLD2_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
+#ifdef SUPPORTED_20000baseKR2_Full
     if ((ecmd.advertising & SUPPORTED_20000baseKR2_Full) != 0) { pcap_port->of_port->advertised |= OFPPF_10GB_FD; }
+#endif
 
     if (ecmd.speed == SPEED_10 && ecmd.duplex) { pcap_port->of_port->curr = OFPPF_10MB_FD; }
     if (ecmd.speed == SPEED_10 && !ecmd.duplex) { pcap_port->of_port->curr = OFPPF_10MB_HD; }

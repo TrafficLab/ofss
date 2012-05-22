@@ -38,7 +38,7 @@ struct act_res {
             uint16_t     max_len;
         } port;
         of_groupid_t group_id;
-    };
+    } u;
 };
 
 ofl_err

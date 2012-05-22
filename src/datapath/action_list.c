@@ -34,13 +34,13 @@ action_list_exec(struct dp_loop *dp_loop, struct pl_pkt *pl_pkt,
 
         switch (res.type) {
             case DP_ACT_GROUP: {
-                logger_log(pl_pkt->logger, LOG_DEBUG, "Group action; executing group (%u).", res.group_id);
-                group_table_exec(dp_loop->groups, pl_pkt, res.group_id);
+                logger_log(pl_pkt->logger, LOG_DEBUG, "Group action; executing group (%u).", res.u.group_id);
+                group_table_exec(dp_loop->groups, pl_pkt, res.u.group_id);
                 break;
             }
             case DP_ACT_PORT: {
-                logger_log(pl_pkt->logger, LOG_DEBUG, "Port action; sending to port (%u).", res.port.port_id);
-                dp_pl_pkt_to_port(dp_loop, res.port.port_id, res.port.max_len, pl_pkt);
+                logger_log(pl_pkt->logger, LOG_DEBUG, "Port action; sending to port (%u).", res.u.port.port_id);
+                dp_pl_pkt_to_port(dp_loop, res.u.port.port_id, res.u.port.max_len, pl_pkt);
                 break;
             }
             default: {

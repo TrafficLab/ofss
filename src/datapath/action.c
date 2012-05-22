@@ -607,7 +607,7 @@ action_exec(struct pl_pkt *pl_pkt, struct ofl_action_header *action) {
     switch (action->type) {
         case (OFPAT_OUTPUT): {
             struct ofl_action_output *ao = (struct ofl_action_output *)action;
-            return (struct act_res){.type = DP_ACT_PORT, .port = {.port_id = ao->port, .max_len = ao->max_len}};
+            return (struct act_res){.type = DP_ACT_PORT, .u.port = {.port_id = ao->port, .max_len = ao->max_len}};
         }
         case (OFPAT_SET_VLAN_VID): {
             set_vlan_vid(pl_pkt, (struct ofl_action_vlan_vid *)action);
@@ -697,7 +697,7 @@ action_exec(struct pl_pkt *pl_pkt, struct ofl_action_header *action) {
         }
         case (OFPAT_GROUP): {
             struct ofl_action_group *ag = (struct ofl_action_group *)action;
-            return (struct act_res){.type = DP_ACT_GROUP, .group_id = ag->group_id};
+            return (struct act_res){.type = DP_ACT_GROUP, .u.group_id = ag->group_id};
         }
         case (OFPAT_SET_NW_TTL): {
             set_nw_ttl(pl_pkt, (struct ofl_action_set_nw_ttl *)action);

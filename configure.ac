@@ -1,5 +1,5 @@
-# require autoconf version >= 2.68
-AC_PREREQ([2.68])
+# require autoconf version >= 2.65
+AC_PREREQ([2.65])
 # initialize project
 AC_INIT([OFSS], [0.1], [zoltan.lajos.kis@ericsson.com],
         [ofss], [https://github.com/TrafficLab/ofss/])

@@ -67,7 +67,7 @@ conf_args_parse_dp(void *args_, char *arg, struct argp_state *state) {
     struct conf_args *args = (struct conf_args *)args_;
 
     // tokenize on separators
-    char *dp, *save_ptr;
+    char *dp, *save_ptr = NULL;
     for (dp = strtok_r(arg, ",", &save_ptr); dp != NULL; dp = strtok_r(NULL, ",", &save_ptr)) {
         // check if port has a colon
         char *colon = strchr(dp, ':');
@@ -99,7 +99,7 @@ conf_args_parse_ctrls(void *args_, char *arg, struct argp_state *state){
     struct conf_args *args = (struct conf_args *)args_;
 
     // tokenize on separators
-    char *ctrl, *save_ptr;
+    char *ctrl, *save_ptr = NULL;
     for (ctrl = strtok_r(arg, ",", &save_ptr); ctrl != NULL;
          ctrl = strtok_r(NULL, ",", &save_ptr)) {
 
@@ -152,7 +152,7 @@ conf_args_parse_ports(void *args_, char *arg, struct argp_state *state UNUSED_AT
     struct conf_args *args = (struct conf_args *)args_;
 
     // tokenize on separators
-    char *port, *save_ptr;
+    char *port, *save_ptr = NULL;
     for (port = strtok_r(arg, ",", &save_ptr); port != NULL;
             port = strtok_r(NULL, ",", &save_ptr)) {
 

@@ -181,11 +181,11 @@ action_set_exec(struct dp_loop *dp_loop, struct act_set *set, struct pl_pkt *pl_
         switch (res.type) {
             case DP_ACT_GROUP: {
                 action_set_clear(set);
-                group_table_exec(dp_loop->groups, pl_pkt, res.group_id);
+                group_table_exec(dp_loop->groups, pl_pkt, res.u.group_id);
                 return;
             }
             case DP_ACT_PORT: {
-                dp_pl_pkt_to_port(dp_loop, res.port.port_id, res.port.max_len, pl_pkt);
+                dp_pl_pkt_to_port(dp_loop, res.u.port.port_id, res.u.port.max_len, pl_pkt);
                 // act_set_should be clear now as output is the last action in order
                 assert(set->actions == NULL);
                 return;
